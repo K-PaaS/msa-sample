@@ -47,3 +47,5 @@ spec:
       - name: mariadb-data
         persistentVolumeClaim:
           claimName: mariadb-pv-claim
+      imagePullSecrets:
+        - name: ${SECRET_NAME}
