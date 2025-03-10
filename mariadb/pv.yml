@@ -10,7 +10,7 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   storageClassName: ""
   hostPath:
-    path: /mnt/data/mariadb-fresh
+    path: /mnt/data/mariadb
     type: DirectoryOrCreate
 
 ---

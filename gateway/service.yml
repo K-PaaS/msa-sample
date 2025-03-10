@@ -1,18 +1,18 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: task-msa-gateway
+  name: ${SERVICE_NAME}
   labels:
-    app: task-msa
+    app: ${APP_NAME}
     tier: backend
 spec:
   type: NodePort
   selector:
-    app: task-msa
+    app: ${APP_NAME}
     tier: backend
   ports:
     - protocol: TCP
       port: 8083
       targetPort: 8083
       nodePort: 30012
-      name: task-msa
+      name: ${APP_NAME}

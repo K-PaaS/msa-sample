@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mariadb
+  name: ${DEPLOYMENT_NAME}
 spec:
   selector:
     matchLabels:
-      app: mariadb
+      app: ${APP_NAME}
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: mariadb
+        app: ${APP_NAME}
     spec:
       containers:
       - image: docker.io/library/mariadb:11.4

@@ -1,26 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: task-msa-api
+  name: ${DEPLOYMENT_NAME}
   labels:
-    app: task-msa
+    app: ${APP_NAME}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: task-msa
+      app: ${APP_NAME}
       tier: backend
   template:
     metadata:
-      annotations:
-        argocd-update-time: Fri Sep  6 00:23:51 UTC 2024
       labels:
-        app: task-msa
+        app: ${APP_NAME}
         tier: backend
     spec:
       containers:
-        - name: task-msa
-          image: soyoung1122/task_msa_api:latest
+        - name: ${APP_NAME}
+          image: ${IMAGE}:${BEFOREJOB_BUILD_NUMBER}
           imagePullPolicy: Always
           resources:
             requests:
@@ -34,5 +32,7 @@ spec:
           envFrom:
             - configMapRef:
                 name: kpaas-msa-configmap
-	    - secretRef:
+            - secretRef:
                 name: mariadb-secret
+      imagePullSecrets:
+        - name: ${SECRET_NAME}
