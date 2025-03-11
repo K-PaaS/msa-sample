@@ -34,7 +34,10 @@ spec:
         - name: MYSQL_DATABASE
           value: "openlab"
         - name: MYSQL_USER
-          value: "admin"
+          valueFrom:
+            configMapKeyRef:
+              name: kpaas-msa-configmap
+              key: DB_USER
         - name: MYSQL_PASSWORD
           valueFrom:
             secretKeyRef:

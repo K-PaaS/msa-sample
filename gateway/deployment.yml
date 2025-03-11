@@ -3,23 +3,23 @@ kind: Deployment
 metadata:
   name: msa-sample-gateway
   labels:
-    app: msa-sample
+    app: msa-sample-gateway
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: msa-sample
+      app: msa-sample-gateway
       tier: backend
   template:
     metadata:
       labels:
-        app: msa-sample
+        app: msa-sample-gateway
         tier: backend
     spec:
       containers:
-        - name: msa-sample
+        - name: msa-sample-gateway
           image: soyoung1122/msa-sample-gateway:latest
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           resources:
             requests:
               memory: "256Mi"
