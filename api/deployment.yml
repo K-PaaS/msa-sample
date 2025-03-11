@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ${DEPLOYMENT_NAME}
+  name: msa-sample-api
   labels:
-    app: ${APP_NAME}
+    app: msa-sample
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ${APP_NAME}
+      app: msa-sample
       tier: backend
   template:
     metadata:
       labels:
-        app: ${APP_NAME}
+        app: msa-sample
         tier: backend
     spec:
       containers:
-        - name: ${APP_NAME}
-          image: ${IMAGE}:${BEFOREJOB_BUILD_NUMBER}
+        - name: msa-sample
+          image: soyoung1122/msa-sample-api:latest
           imagePullPolicy: Always
           resources:
             requests:
@@ -34,5 +34,3 @@ spec:
                 name: kpaas-msa-configmap
             - secretRef:
                 name: mariadb-secret
-      imagePullSecrets:
-        - name: ${SECRET_NAME}

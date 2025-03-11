@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ${DEPLOYMENT_NAME}
+  name: mariadb
 spec:
   selector:
     matchLabels:
-      app: ${APP_NAME}
+      app: mariadb
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: ${APP_NAME}
+        app: mariadb
     spec:
       containers:
       - image: docker.io/library/mariadb:11.4
@@ -47,5 +47,3 @@ spec:
       - name: mariadb-data
         persistentVolumeClaim:
           claimName: mariadb-pv-claim
-      imagePullSecrets:
-        - name: ${SECRET_NAME}
