@@ -32,5 +32,3 @@ spec:
           envFrom:
             - configMapRef:
                 name: kpaas-msa-configmap
-      imagePullSecrets:
-        - name: docker-secret

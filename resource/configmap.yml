@@ -3,11 +3,11 @@ kind: ConfigMap
 metadata:
   name: kpaas-msa-configmap
 data:
-  MSA_API_URL: http://115.68.198.117:30010
-  MSA_SD_API_URL: http://115.68.198.117:30014
-  MSA_UI_URL: http://115.68.198.117:30011
-  MSA_GATEWAY_URL: http://115.68.198.117:30012
-  DB_URL: 115.68.198.117:30306
+  MSA_API_URL: http://{PUBLIC_IP}:30010
+  MSA_SD_API_URL: http://{PUBLIC_IP}:30014
+  MSA_UI_URL: http://{PUBLIC_IP}:30011
+  MSA_GATEWAY_URL: http://PUBLIC_IP:30012
+  DB_URL: {PUBLIC_IP}:30306
 
 
 
