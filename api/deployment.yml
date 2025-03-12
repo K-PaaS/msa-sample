@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: msa-sample-api
-          image: soyoung1122/msa-sample-api:latest
+          image: harbor.k-paas.org/openlab/msa-sample-api:latest
           imagePullPolicy: IfNotPresent
           resources:
             requests:

@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: msa-sample-gateway
-          image: soyoung1122/msa-sample-gateway:latest
+          image: harbor.k-paas.org/openlab/msa-sample-gateway:latest
           imagePullPolicy: IfNotPresent
           resources:
             requests:
