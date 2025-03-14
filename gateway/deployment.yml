@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: msa-sample-gateway
-          image: harbor.k-paas.org/openlab/msa-sample-gateway:latest
+          image: ${IMAGE}:${BEFOREJOB_BUILD_NUMBER}
           imagePullPolicy: IfNotPresent
           resources:
             requests:
@@ -32,3 +32,5 @@ spec:
           envFrom:
             - configMapRef:
                 name: kpaas-msa-configmap
+      imagePullSecrets:
+        - name: ${SECRET_NAME}

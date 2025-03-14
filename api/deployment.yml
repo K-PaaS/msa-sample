@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: msa-sample-api
-          image: harbor.k-paas.org/openlab/msa-sample-api:latest
+          image: ${IMAGE}:${BEFOREJOB_BUILD_NUMBER}
           imagePullPolicy: IfNotPresent
           resources:
             requests:
@@ -34,3 +34,5 @@ spec:
                 name: kpaas-msa-configmap
             - secretRef:
                 name: mariadb-secret
+      imagePullSecrets:
+        - name: ${SECRET_NAME}
